@@ -1,0 +1,293 @@
+:root {
+    --primary-color: #ff4444;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --card-bg: #1a1a1a;
+}
+
+[data-theme="light"] {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f5f5f5;
+    --dark-color: #f5f5f5;
+    --light-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+/* Botón de modo claro/oscuro */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar {
+    background-color: var(--dark-color);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar a {
+    color: var(--light-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+}
+
+[data-theme="light"] .navbar a {
+    color: var(--text-color);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('tu-imagen-de-fondo.jpg');
+    background-size: cover;
+    color: var(--light-color);
+    padding-top: 60px;
+}
+
+[data-theme="light"] .hero {
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('tu-imagen-de-fondo.jpg');
+    color: var(--text-color);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    position: relative;
+}
+
+.blinking-cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: typing 3.5s steps(45, end), blink-caret 0.7s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+[data-theme="light"] .skill-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.skill-card p {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+/* Agrega estos estilos al final de tu archivo CSS */
+
+/* Colores originales de los logos en modo claro */
+[data-theme="light"] .skill-card i.fa-html5 { color: #E34F26; }
+[data-theme="light"] .skill-card i.fa-css3-alt { color: #1572B6; }
+[data-theme="light"] .skill-card i.fa-js { color: #F7DF1E; }
+[data-theme="light"] .skill-card i.fa-python { color: #3776AB; }
+[data-theme="light"] .skill-card i.fa-database { color: #336791; }
+[data-theme="light"] .skill-card i.fa-code { color: #239BED; } /* C# */
+[data-theme="light"] .skill-card i.fa-layer-group { color: #512BD4; } /* Entity Framework */
+[data-theme="light"] .skill-card i.fa-java { color: #007396; }
+[data-theme="light"] .skill-card i.fa-cloud { color: #00BFFF; } /* APIs */
+[data-theme="light"] .skill-card i.fa-react { color: #61DAFB; }
+[data-theme="light"] .skill-card i.fa-angular { color: #DD0031; }
+[data-theme="light"] .skill-card i.fa-palette { color: #F24E1E; } /* UI/UX */
+[data-theme="light"] .skill-card i.fa-adobe { color: #FF0000; } /* Photoshop */
+[data-theme="light"] .skill-card i.fa-github { color: #5e5e5e; } /* Github */
+[data-theme="light"] .skill-card i.fa-git-alt { color: #FF6B6B; } /* Git */
+[data-theme="light"] .photoshop-icon { filter: none; /* Color original en modo claro */
+
+}
+.photoshop-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1); /* Blanco en modo oscuro */
+    transition: filter 0.3s ease;
+}
+
+
+/* Mantener color primario para el texto de descripción */
+[data-theme="light"] .skill-card p {
+    color: var(--primary-color);
+}
+
+/* Asegurar transición suave */
+.skill-card i {
+    transition: color 0.3s ease;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 2px solid var(--primary-color);
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--light-color);
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
